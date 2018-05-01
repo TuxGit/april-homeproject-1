@@ -2,13 +2,13 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
 
-import { getRequest, getResult, getIsFetching } from '../../ducks/users';
+import { fetchRequest, getResult, getIsFetching } from '../../ducks/users';
 import './style.css';
 
 class UserPage extends PureComponent {
 
   componentDidMount () {
-    this.props.getRequest();
+    this.props.fetchRequest();
   }
 
   render () {
@@ -40,5 +40,5 @@ export default connect(
     user: getResult(state),
     isFetching: getIsFetching(state)
   }),
-  { getRequest }
+  { fetchRequest }
 )(UserPage);
