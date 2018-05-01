@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-svg-spinner';
 
-import { getRequest, getResult } from '../../ducks/users';
+import { getRequest, getResult, getIsFetching } from '../../ducks/users';
 import './style.css';
 
 class UserPage extends PureComponent {
@@ -11,9 +12,13 @@ class UserPage extends PureComponent {
   }
 
   render () {
-    const { user } = this.props;
+    const { user, isFetching } = this.props;
 
-    if (!user) { return null; }
+    if (isFetching) {
+      return <Spinner size="64px" color="fuchsia" gap={5} />;
+    } else if (!user) {
+      return null;
+    }
 
     return (
       <div className="user">
@@ -32,7 +37,8 @@ class UserPage extends PureComponent {
 
 export default connect(
   state => ({
-    user: getResult(state)
+    user: getResult(state),
+    isFetching: getIsFetching(state)
   }),
   { getRequest }
 )(UserPage);
