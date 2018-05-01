@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { getRequest, getResult } from '../../ducks/users';
+import './style.css';
 
 class UserPage extends PureComponent {
 
@@ -15,11 +16,11 @@ class UserPage extends PureComponent {
     if (!user) { return null; }
 
     return (
-      <div>
-        <div>
-          <img src={user.avatar_url} alt={user.login}/>
+      <div className="user">
+        <div className="user__pic">
+          <img className="user__pic-img" src={user.avatar_url} alt={user.login}/>
         </div>
-        <div>
+        <div className="user__info">
           <h3>{user.login}</h3>
           <p>Followers: {user.followers}</p>
           <p>Public repos: {user.public_repos}</p>

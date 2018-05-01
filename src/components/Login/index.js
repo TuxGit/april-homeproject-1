@@ -1,8 +1,17 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { authorize, getIsAuthorized } from '../../ducks/auth';
+
+const LoginContainer = styled.div`
+  width: 300px;
+`;
+
+const ToketInput = styled.input`
+  width: 100%;
+`;
 
 class Login extends PureComponent {
   state = {
@@ -16,7 +25,6 @@ class Login extends PureComponent {
 
   onKeyPressHandler = (e) => {
     if (e.key === 'Enter') {
-      console.log('Enter pressed');
       this.props.authorize(this.state.authToken);
     }
   }
@@ -30,15 +38,15 @@ class Login extends PureComponent {
     }
 
     return (
-      <div>
+      <LoginContainer>
         <p>Получить токен нужно на своей странице github, перейдите по <a href="https://github.com/settings/tokens">адресу</a> и создать себе токен. Запишите куда нибудь токен, так как после создания доступ к нему будет только один раз.</p>
-        <input placeholder="auth_token"
+        <ToketInput placeholder="auth_token"
           value={authToken}
           onChange={this.onChangeHandler}
           onKeyPress={this.onKeyPressHandler}
         />
         <p>После ввода нажать Enter</p>
-      </div>
+      </LoginContainer>
     );
   }
 }
