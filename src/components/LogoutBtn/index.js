@@ -6,7 +6,7 @@ import { getIsAuthorized, logout } from '../../ducks/auth';
 const styles = {
   width: '400px',
   margin: '50px auto 20px',
-  'text-align': 'center'
+  textAlign: 'center'
 };
 
 class LogoutBtn extends PureComponent {
