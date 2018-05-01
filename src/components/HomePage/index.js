@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { getIsAuthorized } from '../../ducks/auth';
 
-class PrivateRoute extends PureComponent {
+class HomePage extends PureComponent {
   render () {
-    const { isAuthorized, path, component } = this.props;
+    const { isAuthorized } = this.props;
 
     return !isAuthorized
       ? <Redirect to="/login" />
-      : <Route to={path} component={component} />;
+      : <Redirect to="/users/me"/>;
   }
 }
 
@@ -18,4 +18,4 @@ export default connect(
   state => ({
     isAuthorized: getIsAuthorized(state)
   })
-)(PrivateRoute);
+)(HomePage);
