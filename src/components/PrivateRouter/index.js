@@ -6,11 +6,11 @@ import { getIsAuthorized } from '../../ducks/auth';
 
 class PrivateRoute extends PureComponent {
   render () {
-    const { isAuthorized, path, component } = this.props;
+    const { isAuthorized } = this.props;
 
     return !isAuthorized
       ? <Redirect to="/login" />
-      : <Route to={path} component={component} />;
+      : <Route {...this.props} />;
   }
 }
 
