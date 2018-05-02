@@ -14,7 +14,7 @@ class Follower extends PureComponent {
           <img className="folower__pic-img" src={avatarUrl} alt={login}/>
         </div>
         <div className="folower__info">
-          <Link to={`/user/${login}`}>
+          <Link to={`/users/${login}`}>
             <h3>{login}</h3>
           </Link>
         </div>

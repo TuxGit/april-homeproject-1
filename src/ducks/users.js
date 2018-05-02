@@ -29,7 +29,7 @@ const error = handleActions(
   null
 );
 
-const result = handleActions(
+const data = handleActions(
   {
     [fetchRequest]: (state, action) => null,
     [fetchSuccess]: (state, action) => action.payload
@@ -40,10 +40,10 @@ const result = handleActions(
 export default combineReducers({
   isFetching,
   error,
-  result
+  data
 });
 
 export { fetchRequest, fetchSuccess, fetchFailure };
 
 export const getIsFetching = state => state.users.isFetching;
-export const getResult = state => state.users.result;
+export const getData = state => state.users.data;

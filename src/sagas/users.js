@@ -1,14 +1,19 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { getTokenOwner } from '../api';
+import { getTokenOwner, getUserInformation } from '../api';
 import { fetchRequest, fetchSuccess, fetchFailure } from '../ducks/users';
 
-export function* fetchUserWatch() {
+export function* fetchUserWatch () {
   yield takeLatest(fetchRequest, fetchUserFlow);
 }
 
-export function* fetchUserFlow() {
+export function* fetchUserFlow (action) {
   try {
-    const response = yield call(getTokenOwner);
+    let response = null;
+    if (action.payload) {
+      response = yield call(getUserInformation, action.payload);
+    } else {
+      response = yield call(getTokenOwner);
+    }
     yield put(fetchSuccess(response.data));
   } catch (error) {
     yield put(fetchFailure(error));

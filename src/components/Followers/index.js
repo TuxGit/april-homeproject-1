@@ -9,16 +9,17 @@ import './style.css';
 class Folowers extends PureComponent {
 
   componentDidMount () {
-    console.log('componentDidMount: Folowers', this.props);
+    console.log('Folowers: componentDidMount', this.props);
     const login = this.props.login;
+
     if (login) {
       this.props.fetchRequest(login);
     }
   }
 
   render () {
+    console.log('Folowers: render', this.props);
     const { followers, isFetching } = this.props;
-    console.log('render: Folowers', this.props);
 
     if (isFetching) {
       return <Spinner size="64px" color="fuchsia" gap={5} />;
