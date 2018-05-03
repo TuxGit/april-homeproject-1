@@ -6,10 +6,10 @@ import { fetchRequest, getData, getIsFetching } from '../../ducks/followers';
 import Follower from '../Follower';
 import './style.css';
 
-class Folowers extends PureComponent {
+export class Followers extends PureComponent {
 
   componentDidMount () {
-    console.log('Folowers: componentDidMount', this.props);
+    // console.log('Folowers: componentDidMount', this.props);
     const login = this.props.login;
 
     if (login) {
@@ -18,7 +18,7 @@ class Folowers extends PureComponent {
   }
 
   render () {
-    console.log('Folowers: render', this.props);
+    // console.log('Folowers: render', this.props);
     const { followers, isFetching } = this.props;
 
     if (isFetching) {
@@ -47,4 +47,4 @@ export default connect(
     isFetching: getIsFetching(state)
   }),
   { fetchRequest }
-)(Folowers);
+)(Followers);

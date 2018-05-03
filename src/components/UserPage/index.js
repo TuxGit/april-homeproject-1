@@ -6,17 +6,18 @@ import { fetchRequest, getData, getIsFetching } from '../../ducks/users';
 import Followers from '../Followers';
 import './style.css';
 
-class UserPage extends PureComponent {
+export class UserPage extends PureComponent {
 
   componentDidMount () {
-    console.log('UserPage: componentDidMount', this.props);
-    const userLogin = this.props.match.params.login;
+    // console.log('UserPage: componentDidMount', this.props);
+    const routerMatch = this.props.match;
+    const userLogin = routerMatch && routerMatch.params.login;
 
     this.loadData(userLogin);
   }
 
   componentDidUpdate (prevProps, prevState) {
-    console.log('UserPage: componentDidUpdate', this.props);
+    // console.log('UserPage: componentDidUpdate', this.props);
     const userLogin = this.props.match.params.login;
 
     if (this.props.match.params.login !== prevProps.match.params.login) {
@@ -25,7 +26,7 @@ class UserPage extends PureComponent {
   }
 
   loadData (userLogin) {
-    console.log('UserPage: loadData');
+    // console.log('UserPage: loadData');
 
     if (userLogin === 'me') {
       this.props.fetchRequest();
@@ -35,7 +36,7 @@ class UserPage extends PureComponent {
   }
 
   render () {
-    console.log('UserPage: render', this.props);
+    // console.log('UserPage: render', this.props);
     const { user, isFetching } = this.props;
 
     if (isFetching) {
