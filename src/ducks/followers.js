@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 import { handleActions, createActions } from 'redux-actions';
 
 const {
-  user: { fetchRequest, fetchSuccess, fetchFailure },
+  followers: { fetchRequest, fetchSuccess, fetchFailure },
 } = createActions({
-  USER: {
+  FOLLOWERS: {
     FETCH_REQUEST: null,
     FETCH_SUCCESS: null,
     FETCH_FAILURE: null
@@ -34,7 +34,7 @@ const data = handleActions(
     [fetchRequest]: (state, action) => null,
     [fetchSuccess]: (state, action) => action.payload
   },
-  null
+  []
 );
 
 export default combineReducers({
@@ -45,5 +45,5 @@ export default combineReducers({
 
 export { fetchRequest, fetchSuccess, fetchFailure };
 
-export const getIsFetching = state => state.users.isFetching;
-export const getData = state => state.users.data;
+export const getIsFetching = state => state.followers.isFetching;
+export const getData = state => state.followers.data;

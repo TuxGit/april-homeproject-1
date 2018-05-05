@@ -32,7 +32,7 @@ class AppRouter extends Component {
             ? <Redirect to="/users/me"/>
             : <Redirect to="/login"/>
           )}/> */}
-          <PrivateRoute path="/users/me" component={UserPage} />
+          <PrivateRoute path="/users/:login" component={UserPage} />
           <Route path="/login" component={Login} />
         </Switch>
       </AppContainer>
