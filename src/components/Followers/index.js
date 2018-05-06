@@ -9,7 +9,6 @@ import './style.css';
 export class Followers extends PureComponent {
 
   componentDidMount () {
-    // console.log('Folowers: componentDidMount', this.props);
     const login = this.props.login;
 
     if (login) {
@@ -18,7 +17,6 @@ export class Followers extends PureComponent {
   }
 
   render () {
-    // console.log('Folowers: render', this.props);
     const { followers, isFetching } = this.props;
 
     if (isFetching) {
@@ -28,7 +26,7 @@ export class Followers extends PureComponent {
     }
 
     return (
-      <div className="folowers">
+      <div className="followers">
         {followers.map(item =>
           <Follower
             key={item.id}
