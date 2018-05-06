@@ -1,10 +1,9 @@
-import { call, put, take, select } from 'redux-saga/effects'; // { call, fork, put, cancel, take, cancelled, select }
-// import { delay } from 'redux-saga';
+import { call, put, take, select } from 'redux-saga/effects';
 import { setTokenApi, clearTokenApi } from '../api';
 import { getTokenFromLocalStorage, setTokenToLocalStorage, removeTokenFromLocalStorage } from '../localStorage';
 import { authorize, logout, getIsAuthorized } from '../ducks/auth';
 
-export function* authFlow() {
+export function* authFlow () {
   while (true) {
     const isAuthorized = yield select(getIsAuthorized);
     const localStorageToken = yield call(getTokenFromLocalStorage);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'; // { Switch, Route, Redirect }
+import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import PrivateRoute from '../PrivateRouter';
@@ -24,11 +24,6 @@ class AppRouter extends Component {
         <Header/>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          {/* <Route exact path="/" render={() => (
-            isAuthorized
-            ? <Redirect to="/users/me"/>
-            : <Redirect to="/login"/>
-          )}/> */}
           <PrivateRoute path="/users/:login" component={UserPage} />
           <Route path="/login" component={Login} />
         </Switch>

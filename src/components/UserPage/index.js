@@ -17,7 +17,6 @@ const UserContainer = styled.div`
 export class UserPage extends PureComponent {
 
   componentDidMount () {
-    // console.log('UserPage: componentDidMount', this.props);
     const routerMatch = this.props.match;
     const userLogin = routerMatch && routerMatch.params.login;
 
@@ -25,7 +24,6 @@ export class UserPage extends PureComponent {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    // console.log('UserPage: componentDidUpdate', this.props);
     const userLogin = this.props.match.params.login;
 
     if (this.props.match.params.login !== prevProps.match.params.login) {
@@ -34,8 +32,6 @@ export class UserPage extends PureComponent {
   }
 
   loadData (userLogin) {
-    // console.log('UserPage: loadData');
-
     if (userLogin === 'me') {
       this.props.fetchRequest();
     } else if (userLogin) {
@@ -44,7 +40,6 @@ export class UserPage extends PureComponent {
   }
 
   render () {
-    // console.log('UserPage: render', this.props);
     const { user, isFetching } = this.props;
 
     if (isFetching) {

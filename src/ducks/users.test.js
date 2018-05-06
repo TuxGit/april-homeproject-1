@@ -13,16 +13,6 @@ describe('Тестирование редьюсера users', () => {
     expect(state0).toEqual(INIT_STATE);
   });
 
-  // it('изменение флага (поля) isFetching', () => {
-  //   const stateRequest = users(INIT_STATE, fetchRequest());
-  //   const stateSuccess = users(INIT_STATE, fetchSuccess(null));
-  //   const stateFailure = users(INIT_STATE, fetchFailure(null));
-
-  //   expect(stateRequest.isFetching).toBeTruthy();
-  //   expect(stateSuccess.isFetching).toBeFalsy();
-  //   expect(stateFailure.isFetching).toBeFalsy();
-  // });
-
   it('проверка экшена fetchRequest', () => {
     const state = users(INIT_STATE, fetchRequest());
 

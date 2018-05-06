@@ -1,30 +1,18 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-// import { MemoryRouter } from 'react-router';
-// import { Switch, Route } from 'react-router-dom';
+import { shallow } from 'enzyme';
 import { UserPage } from './index';
 import Spinner from 'react-svg-spinner';
 
 describe('Компонента UserPage', () => {
-  // const wrapper = shallow(<UserPage/>);
-
-  // const wrapper = mount(
-  //   <MemoryRouter initialEntries={['/users/me']}>
-  //     <Route to="/users/:login" component={UserPage}/>
-  //   </MemoryRouter>
-  // );
-  // const userPanel = wrapper.find(UserPage);
 
   describe('Содержит методы:', () => {
     const wrapper = shallow(<UserPage/>);
 
     it('componentDidMount', () => {
       expect(wrapper.instance().componentDidMount).toBeDefined();
-      // expect(userPanel.instance().componentDidMount).toBeDefined();
     });
     it('componentDidUpdate', () => {
       expect(wrapper.instance().componentDidUpdate).toBeDefined();
-      // expect(userPanel.instance().componentDidUpdate).toBeDefined();
     });
   });
 
@@ -57,7 +45,6 @@ describe('Компонента UserPage', () => {
       expect(wrapper.find('h3').text()).toBe(userData.login);
     });
     it('фоловеры пользователя', () => {
-      // .get(0) -> ReactElement
       expect(wrapper.find('p').at(0).text()).toBe(`Followers: ${userData.followers}`);
     });
     it('публичные репозитории пользователя', () => {
