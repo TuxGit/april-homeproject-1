@@ -18,8 +18,7 @@ describe('Тестирование саги #requestFlow', () => {
     });
 
     it('put clearError', () => {
-      // TODO - how test it???
-      // console.log(sagaIterator.next().value);
+      expect(sagaIterator.next(true).value).toEqual(put(clearError()));
     });
   });
 

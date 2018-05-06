@@ -5,7 +5,10 @@ import { logout } from 'ducks/auth';
 export default function* (fn, args) {
   try {
     const response = yield call(fn, args);
-    if (yield select(getIsNetworkErrorPresent)) yield put(clearError());
+    const isNetworkErrorPresent = yield select(getIsNetworkErrorPresent);
+    if (isNetworkErrorPresent) {
+      yield put(clearError());
+    }
     return response;
   } catch (error) {
     yield put(addError(error));
